@@ -1,4 +1,4 @@
-package com.anhe.nc;
+package com.anhe.nc.codeGenerator;
 
 
 import com.anhe.nc.codeGenerator.base.ClassGenerator;

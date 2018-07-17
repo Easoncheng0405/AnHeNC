@@ -23,5 +23,13 @@ public class Constant {
 
     public static final String CHANGE_LINE = System.lineSeparator();
 
+    public static final String NOTES = "//\n// auto-generate code, modify cautiously\n// you can format code \n//";
 
+    public static final String TAB = "    ";
+
+    public static final String STRING = "String";
+
+    public static final String VOID = "void";
+
+    public static final String INT = "int";
 }

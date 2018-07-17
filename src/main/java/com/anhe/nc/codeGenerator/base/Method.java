@@ -1,7 +1,9 @@
 package com.anhe.nc.codeGenerator.base;
 
 
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 /*
  * 作者：程杰
@@ -28,7 +30,7 @@ public class Method {
     /**
      * 参数列表
      */
-    private Map<String,String> argument;
+    private Map<String, String> argument;
 
     /**
      * 是否静态
@@ -39,6 +41,39 @@ public class Method {
      * 函数内容
      */
     private String content;
+
+
+    public Method(String name, Access access, String returnType, Map<String, String> argument) {
+        this.name = name;
+        this.access = access;
+        this.returnType = returnType;
+        this.argument = argument;
+        this.isStatic = false;
+        this.content = Constant.CHANGE_LINE;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(access).append(" ");
+        if (isStatic)
+            builder.append("static ");
+
+        builder.append(returnType).append(" ").append(name).append(Constant.LEFT_LITTLE_PARENTHESIS);
+        Iterator<Map.Entry<String, String>> it = argument.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, String> entry = it.next();
+            builder.append(entry.getValue()).append(" ").append(entry.getKey());
+            if (it.hasNext())
+                builder.append(Constant.COMMA).append(" ");
+        }
+
+        builder.append(Constant.RIGHT_LITTLE_PARENTHESIS).append(Constant.LEFT_BIG_PARENTHESIS)
+                .append(Constant.CHANGE_LINE).append(Constant.TAB).append(content).append(Constant.CHANGE_LINE);
+
+        builder.append(Constant.RIGHT_BIG_PARENTHESIS).append(Constant.CHANGE_LINE);
+        return builder.toString();
+    }
 
 
     public String getName() {
@@ -107,4 +142,6 @@ public class Method {
         result = 31 * result + (argument != null ? argument.hashCode() : 0);
         return result;
     }
+
+
 }

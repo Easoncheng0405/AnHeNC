@@ -34,7 +34,8 @@ public class Properties {
      *
      * @return 方法代码
      */
-    public String propertiesPrinter() {
+    @Override
+    public String toString() {
 
         StringBuilder builder = new StringBuilder();
 
