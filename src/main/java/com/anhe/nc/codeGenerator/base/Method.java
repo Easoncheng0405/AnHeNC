@@ -55,7 +55,7 @@ public class Method {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(access).append(" ");
+        builder.append(Constant.CHANGE_LINE).append(access).append(" ");
         if (isStatic)
             builder.append("static ");
 

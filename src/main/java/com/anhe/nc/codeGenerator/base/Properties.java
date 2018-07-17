@@ -47,7 +47,7 @@ public class Properties {
         if (isFinal)
             builder.append("final ");
 
-        builder.append(type).append(" ").append(name).append(Constant.SEMICOLON);
+        builder.append(type).append(" ").append(name).append(Constant.SEMICOLON).append(Constant.CHANGE_LINE);
 
         return builder.toString();
     }

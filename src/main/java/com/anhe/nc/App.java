@@ -10,6 +10,7 @@ package com.anhe.nc;
 import com.anhe.nc.codeGenerator.base.Access;
 import com.anhe.nc.codeGenerator.base.Constant;
 import com.anhe.nc.codeGenerator.base.Method;
+import com.anhe.nc.codeGenerator.base.Properties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,12 @@ public class App {
         arg.put("b", Constant.INT);
         Method method = new Method("add", Access.PUBLIC, "int", arg);
         method.setContent("return a + b;");
+
+        Properties a=new Properties("a",Access.PRIVATE,Constant.INT);
+
+        Properties b=new Properties("b",Access.PRIVATE,Constant.INT);
+        System.out.println(a);
+        System.out.println(b);
         System.out.println(method);
 
         //SpringApplication.run(App.class,args);
